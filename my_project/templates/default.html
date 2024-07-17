@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load sass_tags %}
+<head>
+    <meta charset="UTF-8">
+        <meta name="author" content="Constantin" />
+        <link href="{% sass_src 'css/styles.scss' %}"  rel="stylesheet" />
+        <title>Weather forecast</title>
+</head>
+<body>
+        <header class="header">
+            {% block header %}
+                {% include "header_component.html" %}
+            {% endblock header %}
+        </header>
+        <main class="main">
+            {% block main %}
+            {% endblock main %}
+        </main>
+        <footer class="footer">
+            {% block footer %}
+                {% include 'footer_component.html' %}
+            {% endblock footer %}
+        </footer>
+</body>
+</html>

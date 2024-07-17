@@ -1,0 +1,12 @@
+{% extends 'default.html' %}
+{% block title %}
+    <h1 class="title">Неудачная регистрация</h1>
+{% endblock title %}
+
+{% block main %}
+<div class="register-message">
+    <h3 class="message">К сожалению не удалось зарегистрировать пользователя.</h3>
+    <h3 class="message">Возможно пользователь с таким именем и паролем уже существует</h3>
+    <h3 class="message">или некорректный пароль.</h3>
+</div>
+{% endblock main %}

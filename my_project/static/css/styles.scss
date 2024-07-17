@@ -1,0 +1,39 @@
+.auth-form {
+    color: red;
+    }
+
+.test {
+    color: green;
+    }
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    height: 100vh;
+    text-align: center;
+    margin: 0 auto;
+    .header {
+            display: flex;
+            background: gold;
+            .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            color: purple;
+            font-size: 28px;
+            }
+            .title {
+                color: blue;
+                }
+            }
+    .main {
+        display: flex;
+        }
+    .footer {
+        display: flex;
+        }
+    }

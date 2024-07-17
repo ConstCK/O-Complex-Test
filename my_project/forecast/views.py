@@ -1,3 +1,13 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def main(request):
+    return render(request, 'main.html', context={})
+
+
+def statistic(request):
+    return render(request, 'main.html', context={})
+
+
+def about(request):
+    return render(request, 'main.html', context={})

@@ -1,0 +1,33 @@
+.auth-form {
+  color: red; }
+
+.test {
+  color: green; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  height: 100vh;
+  text-align: center;
+  margin: 0 auto; }
+  body .header {
+    display: flex;
+    background: gold; }
+    body .header .navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      color: purple;
+      font-size: 28px; }
+    body .header .title {
+      color: blue; }
+  body .main {
+    display: flex; }
+  body .footer {
+    display: flex; }
+
+/*# sourceMappingURL=styles.css.map */

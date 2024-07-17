@@ -1,0 +1,11 @@
+{% extends 'default.html' %}
+{% block title %}
+    <h1 class="title">Неудачная авторизация</h1>
+{% endblock title %}
+
+{% block main %}
+<div class="register-message">
+    <h3 class="message">К сожалению не удалось войти.</h3>
+    <h3 class="message">{{ error }}</h3>
+</div>
+{% endblock main %}

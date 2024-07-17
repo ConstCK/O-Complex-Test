@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+{% block main %}
+    <form class="auth-form" method="post">
+        {% csrf_token %}
+        <div class="auth-fields">
+            {{ form.non_field_errors }}
+        </div>
+        <div class="auth-fields">
+            {{ form.as_p }}
+        </div>
+        <button class="auth-btn" type="submit">Регистрация</button>
+    </form>
+{% endblock main %}
