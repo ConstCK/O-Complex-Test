@@ -70,7 +70,6 @@ def city_statistic(request):
         user = User.objects.get(username=request.user)
         stat = get_city_statistic(user)
     except Exception:
-
         stat = " "
     return render(request, 'city_statistic.html',
                   context={'title': 'Статистика запросов по городам',

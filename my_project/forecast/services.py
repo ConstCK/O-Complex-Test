@@ -2,7 +2,7 @@ import datetime
 from typing import Any
 
 import requests
-from django.db.models import Count, Sum
+from django.db.models import Count
 
 from .models import ForecastOrder
 
@@ -11,6 +11,7 @@ WEATHER_FORECAST_URL = 'https://api.open-meteo.com/v1/forecast'
 
 
 def get_coords_from_db(city_name: str) -> dict[str, str] | None:
+    # Получение координат города по его названию из БД
     result = ForecastOrder.objects.filter(city=city_name)
     if result:
         return {'latitude': result[0].city_lat, 'longitude': result[0].city_lon}
@@ -89,5 +90,4 @@ def get_city_statistic(user: str) -> list[dict[str, Any]] | None:
         query = query.annotate(city_count=Count('city')).order_by('-city_count')
         result = [x for x in query]
         return result
-    else:
-        print(1111)
+
