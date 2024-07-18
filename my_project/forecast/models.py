@@ -10,7 +10,7 @@ class ForecastOrder(models.Model):
     created_at = models.DateTimeField(auto_now=True, verbose_name="Дата и время запроса")
 
     def __str__(self):
-        return f'Запрос прогноза погоды в {self.city} для {self.user}'
+        return f'{self.city} для {self.user}'
 
     class Meta:
         ordering = ['-created_at']

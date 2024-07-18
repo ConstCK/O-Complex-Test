@@ -9,3 +9,6 @@ class ForecastAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ForecastOrder, ForecastAdmin)
+
+
+

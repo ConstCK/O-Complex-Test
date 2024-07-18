@@ -15,18 +15,28 @@ html {
         margin: 0;
         padding: 0;
         }
-    a, a:active {
+    a {
         margin: 10px;
         text-decoration: none;
         border: 1px gold solid;
         box-shadow: 1px 2px 2px grey;
         padding: 2px 10px;
         color: $primary-color;
+        &:hover {
+            color: black;
+            background-color: white;
+            }
+        &:active {
+            border-radius: 60px;
+            box-shadow: 4px 6px 4px grey;
+            }
         }
-    ol, ul, li {
-    list-style: none;
-}
+        ol, ul, li {
+            list-style: none;
+            }
+
     }
+
 body {
     font-size: $primary-size;
     display: flex;
@@ -40,6 +50,7 @@ body {
     box-shadow: 5px 3px 5px;
     text-align: center;
     margin: 0 auto;
+
     button {
     margin: 20px auto;
     padding: 10px 20px;
@@ -48,7 +59,16 @@ body {
     background-color: $button-background;
     color: $button-color;
     font-weight: 600;
+    &:hover{
+        color: black;
+        background-color: #b59e2a;
+        }
+    &:active {
+        border-radius: 60px;
+        box-shadow: 4px 6px 4px grey;
+        }
     }
+
     .header {
             display: flex;
             flex-direction: column;

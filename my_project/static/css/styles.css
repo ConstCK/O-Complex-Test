@@ -6,13 +6,19 @@ html {
   html h1, html h2, html h3 {
     margin: 0;
     padding: 0; }
-  html a, html a:active {
+  html a {
     margin: 10px;
     text-decoration: none;
     border: 1px gold solid;
     box-shadow: 1px 2px 2px grey;
     padding: 2px 10px;
     color: #0522b3; }
+    html a:hover {
+      color: black;
+      background-color: white; }
+    html a:active {
+      border-radius: 60px;
+      box-shadow: 4px 6px 4px grey; }
   html ol, html ul, html li {
     list-style: none; }
 
@@ -37,6 +43,12 @@ body {
     background-color: #048a81;
     color: #b80748;
     font-weight: 600; }
+    body button:hover {
+      color: black;
+      background-color: #b59e2a; }
+    body button:active {
+      border-radius: 60px;
+      box-shadow: 4px 6px 4px grey; }
   body .header {
     display: flex;
     flex-direction: column;
