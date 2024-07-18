@@ -8,6 +8,7 @@ $button-background: #048a81;
 $button-color: #b80748;
 html {
     font-family: Georgia, sans-serif;
+    overflow-x: hidden;
     h1, h2, h3, {
         margin: 0;
         padding: 0;
@@ -79,6 +80,19 @@ body {
         height: 65vh;
         width: 100%;
         margin: 20px auto;
+        overflow-y: scroll;
+        .statistic {
+            width: 100%;
+            .statistic-set {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border: 1px solid #057d09;
+                width: 80%;
+            }
+
+            }
+
         .title {
             margin: 20px auto;
             font-size: $primary-size*3;

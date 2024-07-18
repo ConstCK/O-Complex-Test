@@ -1,6 +1,7 @@
 @use 'variables';
 html {
-  font-family: Georgia, sans-serif; }
+  font-family: Georgia, sans-serif;
+  overflow-x: hidden; }
   html h1, html h2, html h3 {
     margin: 0;
     padding: 0; }
@@ -62,7 +63,16 @@ body {
     flex-direction: column;
     height: 65vh;
     width: 100%;
-    margin: 20px auto; }
+    margin: 20px auto;
+    overflow-y: scroll; }
+    body .main .statistic {
+      width: 100%; }
+      body .main .statistic .statistic-set {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid #057d09;
+        width: 80%; }
     body .main .title {
       margin: 20px auto;
       font-size: 48px; }

@@ -2,12 +2,11 @@ import requests
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from .forms import ForecastOrderForm
-from .models import ForecastOrder
 from .services import (get_coords_by_city,
                        get_coords_from_db,
                        get_weather_forecast,
                        add_data_to_db,
-                       last_city_info)
+                       last_city_info, get_statistic)
 
 
 def main(request):
@@ -16,14 +15,12 @@ def main(request):
         last_city = last_city_info(user)
     except Exception:
         last_city = ''
-    finally:
-        form = ForecastOrderForm({'city': last_city})
 
-
+    form = ForecastOrderForm({'city': last_city})
     if request.method == "POST":
         form = ForecastOrderForm(request.POST)
         if form.is_valid():
-
+            user = User.objects.get(username=request.user)
             city = request.POST.get('city')
             # Проверка есть ли координаты города в БД и добавление нового запроса
             if get_coords_from_db(city):
@@ -46,20 +43,28 @@ def main(request):
                                lat,
                                lon)
 
-            return render(request,
-                          'main.html',
+            return render(request, 'main.html',
                           context={'city': city,
                                    'hour': result.get('hour'),
                                    'temperature': result.get('temperature'),
-                                   'form': form})
+                                   'form': form,
+                                   'title': 'Welcome to weather forecast!'}
+                          )
 
     return render(request, 'main.html',
-                  context={'form': form})
+                  context={'form': form, 'title': 'Welcome to weather forecast!'})
 
 
 def statistic(request):
-    return render(request, 'main.html', context={})
+    try:
+        user = User.objects.get(username=request.user)
+        stat = get_statistic(user)
+    except Exception:
+        stat = " "
+    return render(request, 'statistic.html',
+                  context={'title': 'Статистика запросов',
+                           'statistic': stat})
 
 
 def about(request):
-    return render(request, 'main.html', context={})
+    return render(request, 'about.html', context={'title': 'About page'})

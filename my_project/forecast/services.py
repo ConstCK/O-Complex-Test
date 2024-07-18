@@ -1,4 +1,6 @@
 import datetime
+from typing import Any
+
 import requests
 from .models import ForecastOrder
 
@@ -64,7 +66,16 @@ def add_data_to_db(user: str, city_name: str, lat: str, lon: str, ) -> None:
 
 
 def last_city_info(user: str) -> str | None:
+    # Получение города из последнего запроса пользователя
     result = ForecastOrder.objects.filter(user=user)
     if result:
         return result[0].city
 
+
+def get_statistic(user: str) -> list[dict[str, Any]] | None:
+    # Получение статистики запросов пользователя
+
+    query = ForecastOrder.objects.filter(user=user)
+    if query:
+        result = [x for x in query.values('city', 'created_at')]
+        return result
