@@ -1,0 +1,12 @@
+{% extends 'default.html' %}
+{% block main %}
+    <div class="statistic">
+        {% for data in statistic %}
+        <div class="statistic-set">
+            <div class="statistic-item">{{forloop.counter}}</div>
+            <div class="statistic-item">{{data.city}}</div>
+            <div class="statistic-item">{{data.city_count}}</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock main %}

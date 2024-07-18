@@ -2,6 +2,8 @@ import datetime
 from typing import Any
 
 import requests
+from django.db.models import Count, Sum
+
 from .models import ForecastOrder
 
 CITY_COORDS_URL = 'https://geocoding-api.open-meteo.com/v1/search'
@@ -72,10 +74,20 @@ def last_city_info(user: str) -> str | None:
         return result[0].city
 
 
-def get_statistic(user: str) -> list[dict[str, Any]] | None:
-    # Получение статистики запросов пользователя
-
+def get_main_statistic(user: str) -> list[dict[str, Any]] | None:
+    # Получение общей статистики запросов пользователя
     query = ForecastOrder.objects.filter(user=user)
     if query:
         result = [x for x in query.values('city', 'created_at')]
         return result
+
+
+def get_city_statistic(user: str) -> list[dict[str, Any]] | None:
+    # Получение статистики по количеству запросов для каждого города пользователя
+    query = ForecastOrder.objects.filter(user=user).values('city')
+    if query:
+        query = query.annotate(city_count=Count('city')).order_by('-city_count')
+        result = [x for x in query]
+        return result
+    else:
+        print(1111)

@@ -6,7 +6,7 @@ from .services import (get_coords_by_city,
                        get_coords_from_db,
                        get_weather_forecast,
                        add_data_to_db,
-                       last_city_info, get_statistic)
+                       last_city_info, get_main_statistic, get_city_statistic)
 
 
 def main(request):
@@ -36,7 +36,6 @@ def main(request):
                 lat = coords.get('latitude')
                 lon = coords.get('longitude')
                 result = get_weather_forecast(lat, lon)
-                print(result)
 
                 add_data_to_db(user,
                                city,
@@ -55,14 +54,26 @@ def main(request):
                   context={'form': form, 'title': 'Welcome to weather forecast!'})
 
 
-def statistic(request):
+def main_statistic(request):
     try:
         user = User.objects.get(username=request.user)
-        stat = get_statistic(user)
+        stat = get_main_statistic(user)
     except Exception:
         stat = " "
-    return render(request, 'statistic.html',
-                  context={'title': 'Статистика запросов',
+    return render(request, 'main_statistic.html',
+                  context={'title': 'Основная статистика запросов',
+                           'statistic': stat})
+
+
+def city_statistic(request):
+    try:
+        user = User.objects.get(username=request.user)
+        stat = get_city_statistic(user)
+    except Exception:
+
+        stat = " "
+    return render(request, 'city_statistic.html',
+                  context={'title': 'Статистика запросов по городам',
                            'statistic': stat})
 
 
