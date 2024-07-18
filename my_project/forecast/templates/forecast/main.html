@@ -1,4 +1,22 @@
 {% extends 'default.html' %}
 {% block main %}
-    <div class="test">sdafsadfsadf</div>
+    {% if user.is_authenticated %}
+    <h1 class="title">Введите город</h1>
+    <form class="forecast-form" method="post">
+        {% csrf_token %}
+        <div class="forecast-fields">
+            {{ form.as_p }}
+        </div>
+        <button class="auth-btn" type="submit">Получить прогноз</button>
+    </form>
+    {% if city %}
+    <h2 class="message-header">Прогноз погоды на {{ hour }} часов в городе {{ city }}</h2>
+    <h2 class="message-header">{{ temperature }} градусов по цельсию</h2>
+    {% else%}
+    <div class="message">Укажите город для отображения прогноза погоды</div>
+    {% endif %}
+    {% else%}
+    <div class="message">Авторизуйтесь для запроса прогноза погоды</div>
+    {% endif %}
+
 {% endblock main %}

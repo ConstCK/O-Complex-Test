@@ -14,11 +14,9 @@ def sign_up(request):
 
             login(request, user)
             return render(request, 'registration/successful_registration.html')
-        else:
-            return render(request, 'registration/failed_registration.html')
-    else:
-        form = SignUpForm()
-        return render(request, 'registration/signup.html', {'form': form})
+
+    form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 def log_in(request):

@@ -18,6 +18,7 @@ body {
     margin: 0 auto;
     .header {
             display: flex;
+            justify-content: center;
             background: gold;
             .navbar {
             display: flex;
@@ -32,6 +33,7 @@ body {
             }
     .main {
         display: flex;
+        flex-direction: column;
         }
     .footer {
         display: flex;

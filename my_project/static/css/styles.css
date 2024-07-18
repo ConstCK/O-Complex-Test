@@ -16,6 +16,7 @@ body {
   margin: 0 auto; }
   body .header {
     display: flex;
+    justify-content: center;
     background: gold; }
     body .header .navbar {
       display: flex;
@@ -26,7 +27,8 @@ body {
     body .header .title {
       color: blue; }
   body .main {
-    display: flex; }
+    display: flex;
+    flex-direction: column; }
   body .footer {
     display: flex; }
 
