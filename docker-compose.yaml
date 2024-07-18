@@ -1,0 +1,10 @@
+services:
+  django:
+    build: .
+    ports:
+      - "8000:8000"
+    command: bash -c "python my_project/manage.py makemigrations 
+      && python my_project/manage.py migrate
+      && python my_project/manage.py runserver 0.0.0.0:8000"
+
+
