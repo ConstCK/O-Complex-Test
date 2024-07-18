@@ -63,8 +63,8 @@ def add_data_to_db(user: str, city_name: str, lat: str, lon: str, ) -> None:
     ForecastOrder.objects.create(user=user, city=city_name, city_lat=lat, city_lon=lon)
 
 
-def last_city_info(user: str) -> str:
+def last_city_info(user: str) -> str | None:
     result = ForecastOrder.objects.filter(user=user)
     if result:
         return result[0].city
-    return ''
+

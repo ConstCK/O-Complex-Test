@@ -11,9 +11,13 @@ from .services import (get_coords_by_city,
 
 
 def main(request):
-    user = User.objects.get(username=request.user)
-    last_city = last_city_info(user)
-    form = ForecastOrderForm({'city': last_city})
+    try:
+        user = User.objects.get(username=request.user)
+        last_city = last_city_info(user)
+    except Exception:
+        last_city = ''
+    finally:
+        form = ForecastOrderForm({'city': last_city})
 
 
     if request.method == "POST":
