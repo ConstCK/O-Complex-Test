@@ -2,6 +2,9 @@
 Есть возможность запуска в Docker.
 
 * Скопируйте проект к себе на ПК при помощи: git clone https://github.com/ConstCK/O-Complex-Test.git
+* Перейдите в папку проекта
+* В терминале создайте виртуальное окружение (например python -m venv venv) и активируйте его (venv\scripts\activate)
+* Установите все зависимости при помощи pip install -r requirements.txt
 * Создайте файл .env в каталоге проекта и пропишите в нем SECRET_KEY = Сгенерированный ключ
 * Ключ для Django можно сгенерировать по пути https://djecrety.ir/
 
