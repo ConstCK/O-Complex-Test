@@ -10,8 +10,7 @@ def sign_up(request):
         if form.is_valid():
             user = User.objects.create_user(username=request.POST['username'],
                                             password=request.POST['password1'],
-                                            is_active=True)
-
+                                            )
             login(request, user)
             return render(request, 'registration/successful_registration.html')
 

@@ -10,7 +10,7 @@
         <button class="auth-btn" type="submit">Получить прогноз</button>
     </form>
     {% if city %}
-    <h2 class="message-header">Прогноз погоды на {{ hour }} часов в городе {{ city }}</h2>
+    <h2 class="message-header">Прогноз погоды на {{ hour }}:00 в городе {{ city }}</h2>
     <h2 class="message-header">{{ temperature }} градусов по цельсию</h2>
     {% else%}
     <div class="message">Укажите город для отображения прогноза погоды</div>
